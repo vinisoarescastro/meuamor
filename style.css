@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #192e8b 0%, #a040ff 100%);
+    background: linear-gradient(135deg, #000000 0%, #7d0388 100%);
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -28,7 +28,7 @@ body {
 }
 
 h1 {
-    font-size: 2.6rem;
+    font-size: 1.5rem;
     margin-bottom: 10px;
     background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
     -webkit-background-clip: text;
@@ -37,7 +37,7 @@ h1 {
 }
 
 .subtitle {
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin-bottom: 30px;
     opacity: 0.9;
 }
@@ -45,7 +45,7 @@ h1 {
 /* Container do slideshow */
 .slideshow-container {
     position: relative;
-    max-width: 600px;
+    max-width: 500px;
     margin: 0 auto 30px;
     border-radius: 15px;
     overflow: hidden;
@@ -66,7 +66,7 @@ h1 {
 
 /* Contador de tempo */
 .time-counter {
-    background: rgba(0, 0, 0, 0.24);
+    background: rgba(0, 0, 0, 0.473);
     padding: 25px;
     border-radius: 15px;
     margin: 30px 0;
@@ -74,7 +74,7 @@ h1 {
 }
 
 .time-counter h2 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-bottom: 15px;
 }
 
@@ -92,26 +92,32 @@ h1 {
 }
 
 .time-number {
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: bold;
     color: #ff6b6b;
 }
 
 .time-label {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     opacity: 0.8;
     margin-top: 5px;
 }
 
 /* Mensagem romântica */
 .romantic-message {
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 1.6;
     margin-top: 25px;
     padding: 20px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     font-style: italic;
+}
+
+.romantic-message, p{
+    font-size: 0.9em;
+    margin-top: 15px;
+
 }
 
 /* Animação sutil */
@@ -123,6 +129,71 @@ h1 {
 
 .time-number {
     animation: pulse 2s infinite;
+}
+
+/* ANIMAÇÃO DE CORAÇÕES VOANDO */
+.floating-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Não interfere nos cliques */
+    z-index: -1; /* Fica atrás do conteúdo */
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    color: #ff69b4;
+    font-size: 20px;
+    animation: floatUp 8s linear infinite;
+    opacity: 0;
+}
+
+/* Diferentes tamanhos de corações */
+.heart.small {
+    font-size: 30px;
+    animation-duration: 6s;
+}
+
+.heart.medium {
+    font-size: 45px;
+    animation-duration: 9s;
+}
+
+.heart.large {
+    font-size: 60px;
+    animation-duration: 12s;
+}
+
+/* Animação principal - corações voando */
+@keyframes floatUp {
+    0% {
+        bottom: -50px;
+        opacity: 0;
+        transform: translateX(0) rotate(0deg);
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        bottom: 100vh;
+        opacity: 0;
+        transform: translateX(100px) rotate(360deg);
+    }
+}
+
+/* Diferentes velocidades e movimentos */
+.heart:nth-child(odd) {
+    animation-timing-function: ease-in-out;
+}
+
+.heart:nth-child(even) {
+    animation-timing-function: ease-out;
 }
 
 /* Responsividade */
@@ -143,5 +214,18 @@ h1 {
             
     .slide {
         height: 250px;
+    }
+
+    /* Corações menores no mobile */
+    .heart {
+        font-size: 16px;
+    }
+
+    .heart.small {
+        font-size: 12px;
+    }
+
+    .heart.large {
+        font-size: 20px;
     }
 }

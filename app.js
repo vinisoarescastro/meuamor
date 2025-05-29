@@ -14,7 +14,7 @@ function showNextSlide() {
 }
         
 // Troca de slide a cada 3 segundos
-setInterval(showNextSlide, 3000);
+setInterval(showNextSlide, 2500);
         
 // CONTADOR DE TEMPO EM TEMPO REAL
 const startDate = new Date('2022-12-17T22:00:00'); // Data de início do namoro
@@ -41,3 +41,52 @@ setInterval(updateCounter, 1000);
         
 // Chama a função uma vez quando a página carrega
 updateCounter();
+
+// ANIMAÇÃO DE CORAÇÕES VOANDO
+function createHeart() {
+    const heartsContainer = document.getElementById('heartsContainer');
+    const heart = document.createElement('div');
+    
+    // Adiciona a classe heart
+    heart.classList.add('heart');
+    
+    // Escolhe tamanho aleatório
+    const sizes = ['small', 'medium', 'large'];
+    const randomSize = sizes[Math.floor(Math.random() * sizes.length)];
+    heart.classList.add(randomSize);
+    
+    // Símbolos de coração diferentes
+    const heartSymbols = ['❤️', '💖', '💗', '💝'];
+    heart.innerHTML = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+    
+    // Posição horizontal aleatória
+    heart.style.left = Math.random() * 100 + '%';
+    
+    // Delay aleatório para movimento mais natural
+    heart.style.animationDelay = Math.random() * 2 + 's';
+    
+    // Adiciona o coração à tela
+    heartsContainer.appendChild(heart);
+    
+    // Remove o coração depois da animação para não sobrecarregar
+    setTimeout(() => {
+        if (heart.parentNode) {
+            heart.parentNode.removeChild(heart);
+        }
+    }, 15000); // Remove após 15 segundos
+}
+        
+// Cria corações em intervalos aleatórios
+function startHeartAnimation() {
+    createHeart();
+    
+    // Próximo coração entre 1 a 3 segundos
+    const nextHeartDelay = Math.random() * 1000 + 1000;
+    setTimeout(startHeartAnimation, nextHeartDelay);
+}
+        
+// Inicia a animação de corações quando a página carrega
+window.addEventListener('load', () => {
+    // Pequeno delay para a página carregar completamente
+    setTimeout(startHeartAnimation, 200);
+})
