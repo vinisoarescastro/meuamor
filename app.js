@@ -17,7 +17,7 @@ function showNextSlide() {
 setInterval(showNextSlide, 2500);
         
 // CONTADOR DE TEMPO EM TEMPO REAL
-const startDate = new Date('2022-12-17T22:00:00'); // Data de início do namoro
+const startDate = new Date('2022-12-17T00:00:00'); // Data de início do namoro
         
 function updateCounter() {
     const now = new Date(); // Data e hora atual
