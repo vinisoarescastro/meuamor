@@ -1,0 +1,147 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #192e8b 0%, #a040ff 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.container {
+    text-align: center;
+    max-width: 600px;
+    margin: 20px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+h1 {
+    font-size: 2.6rem;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+/* Container do slideshow */
+.slideshow-container {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.slide {
+    display: none;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.slide.active {
+    display: block;
+}
+
+/* Contador de tempo */
+.time-counter {
+    background: rgba(0, 0, 0, 0.24);
+    padding: 25px;
+    border-radius: 15px;
+    margin: 30px 0;
+    backdrop-filter: blur(5px);
+}
+
+.time-counter h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.time-display {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.time-unit {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.time-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff6b6b;
+}
+
+.time-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-top: 5px;
+}
+
+/* Mensagem romântica */
+.romantic-message {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-top: 25px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    font-style: italic;
+}
+
+/* Animação sutil */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.time-number {
+    animation: pulse 2s infinite;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px;
+        padding: 30px 20px;
+    }
+            
+    h1 {
+        font-size: 2rem;
+    }
+            
+    .slideshow-container {
+        max-width: 300px;
+        height: 250px;
+    }
+            
+    .slide {
+        height: 250px;
+    }
+}
